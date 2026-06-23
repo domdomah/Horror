@@ -1,379 +1,157 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <link rel="icon" type="image/png" href="IMG_٢٠٢٦٠٣٢٩_١٠٥٩٢٠.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The dmadm horror</title>
-<meta name="description" content="رعب الدمادم، سلسلة رعب عربية خيالية.">
-<meta name="keywords" content="رعب، مغامرات، خيال، خيال عربي، خيال مصري، القرين، النداهة، عيشة قنديشة، أم الدويس، الغول، السعلاة، السعلوة، الطنطل، الفرعون، النسناس، سايرن هيد، كوتشيساكي أونّا، الخجول SCP-096.">
-<meta name="author" content="ادم ايهاب احمد عبد الفتاح حسن الكتبي">
-<meta name="robots" content="index, follow">
 
-<!-- Google Fonts: Alice -->
+<title>رعب الدمادم</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
 
 <style>
-html, body {    
-    margin: 0;    
-    padding: 0;    
-    background: #000 !important;    
-    color: #999;    
-    font-family: 'Alice', serif;    
-    scroll-behavior: smooth;    
-    direction: rtl;    
-    unicode-bidi: embed;    
-}    
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: #ccc;
+    font-family: 'Alice', serif;
+    scroll-behavior: smooth;
+}
 
-* { box-sizing: border-box; }    
+/* ===== navbar ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background: #000;
+    border-bottom: 1px solid #111;
 
-:root { --gold-dark: #b8860b; }    
+    display: flex;
+    justify-content: center;   /* 🔥 هذا يجعل العناصر في النص */
+    align-items: center;
+    gap: 25px;
 
-/* ===== navbar ===== */    
-.navbar {    
-    position: fixed;    
-    top: 0;    
-    width: 100%;    
-    background: #000;    
-    padding: 16px 40px;    
-    border-bottom: 1px solid #111;    
-    z-index: 1000;    
-    display: flex;    
-    justify-content: space-between;    
-    align-items: center;    
-}    
-.navbar a {    
-    color: var(--gold-dark);    
-    text-decoration: none;    
-    font-weight: 700;    
-    font-size: 17px;    
-    cursor: pointer;    
-    transition: 0.3s;    
-}    
-.navbar a:hover { color: #daa520; }    
+    z-index: 1000;
+}
 
-.nav-center {    
-    position: absolute;    
-    left: 50%;    
-    transform: translateX(-50%);    
-    text-align: center;    
-}    
-.nav-center a {    
-    display: block;    
-    margin: 6px 0;    
-}    
+.navbar a {
+    color: #b8860b;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
 
-/* ===== قائمة الفصول ===== */    
-.chapters-menu {    
-    display: none;    
-    position: fixed;    
-    top: 70px;    
-    left: 50%;    
-    transform: translateX(-50%);    
-    background: #111;    
-    padding: 25px;    
-    border: 1px solid #222;    
-    border-radius: 8px;    
-    z-index: 2000;    
-    text-align: center;    
-    width: 280px;    
-    max-height: 60vh;    
-    overflow-y: auto;    
-}    
-.chapters-menu a {    
-    display: block;    
-    color: #777;    
-    text-decoration: none;    
-    margin: 12px 0;    
-    font-size: 16px;    
-}    
-.chapters-menu a:hover { color: var(--gold-dark); }    
+/* ===== menu ===== */
+.menu {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111;
+    padding: 15px;
+    width: 250px;
+    border: 1px solid #222;
+    z-index: 2000;
+}
 
-/* ===== popup ===== */    
-.popup {    
-    display: none;    
-    position: fixed;    
-    inset: 0;    
-    background: rgba(0,0,0,0.85);    
-    z-index: 5000;    
-    justify-content: center;    
-    align-items: center;    
-}    
-.popup-box {    
-    width: 28%;    
-    min-width: 250px;    
-    max-height: 50vh;    
-    overflow-y: auto;    
-    background: #000;    
-    border: 4px solid var(--gold-dark);    
-    padding: 20px;    
-    text-align: center;    
-    position: relative;    
-}    
-.popup-box h2 {    
-    color: var(--gold-dark);    
-    margin: 15px 0;    
-    font-size: 18px;    
-}    
-.popup-box p {    
-    font-size: 15px;    
-    line-height: 1.6;    
-    margin: 2px 0;    
-    color: #ccc;    
-}    
-.close-btn {    
-    position: absolute;    
-    top: 8px;    
-    right: 12px;    
-    font-size: 20px;    
-    color: var(--gold-dark);    
-    cursor: pointer;    
-    font-weight: bold;    
-}    
+.menu a {
+    display: block;
+    padding: 10px;
+    color: #aaa;
+    text-decoration: none;
+}
 
-/* ===== hero ===== */    
-.hero {    
-    padding: 150px 20px 60px;    
-    text-align: center;    
-}    
-.hero h1 {    
-    font-size: 70px;    
-    color: var(--gold-dark);    
-}    
-.summary {    
-    max-width: 700px;    
-    margin: auto;    
-    font-size: 22px;    
-    line-height: 2;    
-    color: #ccc;    
-}    
+.menu a:hover {
+    color: #b8860b;
+}
 
-/* ===== الفصول ===== */    
-.chapter-block {    
-    max-width: 900px;    
-    margin: 40px auto;    
-    padding: 40px;    
-    display: none; /* مخفية تلقائياً */    
-}    
-.chapter-title {    
-    font-size: 28px;    
-    color: var(--gold-dark);    
-    margin-bottom: 25px;    
-    text-align: right;    
-}    
-.chapter-content {    
-    line-height: 2.3;    
-    font-size: 19px;    
-    text-align: right;    
-    white-space: pre-line;    
-    color: #ccc;    
-}    
+/* ===== hero ===== */
+.hero {
+    padding: 120px 20px 40px;
+    text-align: center;
+}
 
-/* ===== footer ===== */    
-footer {    
-    padding: 80px 20px;    
-    text-align: center;    
-    border-top: 1px solid #111;    
-}    
-footer a {    
-    color: var(--gold-dark);    
-    text-decoration: none;    
-    font-size: 26px;    
-    font-weight: bold;    
-}    
-footer a:hover { color: #daa520; }    
+.hero h1 {
+    color: #b8860b;
+    font-size: 50px;
+}
 
-/* ===== الصور ===== */  
-img.lazy {  
-    opacity: 0;  
-    transition: opacity 0.5s ease;  
-}  
+/* ===== chapters ===== */
+.chapter {
+    display: none;
+    padding: 40px;
+    max-width: 800px;
+    margin: auto;
+}
 
-img.lazy.show {  
-    opacity: 1;  
-}  
+.chapter h2 {
+    color: #b8860b;
+}
 </style>
 </head>
+
 <body>
 
 <!-- ===== navbar ===== -->
 <div class="navbar">
-    <a href="#" onclick="scrollToHome()">Central        </a>
-    <div class="nav-center">
-        <a onclick="toggleMenu()">chapters</a>
-        <a onclick="openPopup()">Wiki </a>
- 
+    <a onclick="scrollHome()">الرئيسية</a>
+    <a onclick="toggleMenu()">الفصول</a>
 </div>
 
-<!-- ===== قائمة الفصول ===== -->
-<div class="chapters-menu" id="chaptersMenu">
-<a href="#" onclick="showChapter('ch1')">القرين</a>
-<a href="#" onclick="showChapter('ch2')">النداهة</a>
-<a href="#" onclick="showChapter('ch3')">عيشة قنديشة</a>
-<a href="#" onclick="showChapter('ch4')">أم الدويس</a>
-<a href="#" onclick="showChapter('ch5')">الغول</a>
-<a href="#" onclick="showChapter('ch6')">السعلاة</a>
-<a href="#" onclick="showChapter('ch7')">السلعوة</a>
-<a href="#" onclick="showChapter('ch8')">الطنطل</a>
-<a href="#" onclick="showChapter('ch9')">الفرعون</a>
-<a href="#" onclick="showChapter('ch10')">النسناس</a>
-<a href="#" onclick="showChapter('ch11')">سايرن هيد</a>
-<a href="#" onclick="showChapter('ch12')">الخجول SCP-096</a>
-<a href="#" onclick="showChapter('ch13')">كوتشيساكي أونّا</a>
+<!-- ===== menu ===== -->
+<div class="menu" id="menu">
+    <a onclick="showChapter('c1')">القرين</a>
+    <a onclick="showChapter('c2')">النداهة</a>
+    <a onclick="showChapter('c3')">عيشة قنديشة</a>
 </div>
+
 <!-- ===== hero ===== -->
-<section class="hero" id="homeSection">
+<div class="hero" id="home">
     <h1>رعب الدمادم</h1>
-    <img src="file_000000009350720aa4c1db8e94ea60d5.png" 
-     alt="القمر الدموي، رعب الدمادم،" 
-     width="200" 
-     loading="lazy">
-    <div class="summary">
-        رعب الدمادم: سلسلة رعب خيالي ذات طابع مصري وعربي. 
-    </div>
-</section>
-<div style="border-top:1px solid #111; margin:40px 0;"></div>
-
-<!-- ===== الفصول ===== -->
-
-<section class="chapter-block" id="ch1"><h2 class="chapter-title">القرين</h2><div class="chapter-content">
-قريباً..
-</div></section>
-
-    
-    <section class="chapter-block" id="ch2"><h2 class="chapter-title">النداهة</h2><div class="chapter-content">
-قريباً..
-</div></section>
-
-    
-<section class="chapter-block" id="ch3"><h2 class="chapter-title">عيشة قنديشة</h2><div class="chapter-content">
-قريباً..
-</div></section>
-
-    
-
-<section class="chapter-block" id="ch4"><h2 class="chapter-title">أم الدويس</h2><div class="chapter-content">
-قريباً..
-</div></section>
-
-    
-
-<section class="chapter-block" id="ch5"><h2 class="chapter-title">الغول</h2><div class="chapter-content">
-قريباً..
-</div></section>
-
-
-    
-<section class="chapter-block" id="ch6"><h2 class="chapter-title">السعلاة</h2><div class="chapter-content">
-قريباً..
-</div></section>
-
-
-    
-<section class="chapter-block" id="ch7"><h2 class="chapter-title">السلعوه</h2><div class="chapter-content">
-قريباً..
-</div></section>
-
-
-    
-<section class="chapter-block" id="ch8"><h2 class="chapter-title">الطنطل</h2><div class="chapter-content">
-قريباً..
-
-    
-</div></section>
-
-<section class="chapter-block" id="ch9"><h2 class="chapter-title">الفرعون</h2><div class="chapter-content">
-
-قريباً..
-    
-</div></section>
-
- <section class="chapter-block" id="ch10"><h2 class="chapter-title">النسناس</h2><div class="chapter-content">
-قريباً.. 
-</div></section>
-
-<section class="chapter-block" id="ch11"><h2 class="chapter-title">سايرن هيد</h2><div class="chapter-content">
-قريباً..
-</div></section>
-    
-<section class="chapter-block" id="ch12"><h2 class="chapter-title">كوتشيساكي أونّا</h2><div class="chapter-content">
-قريباً..
-</div></section>
-    
-<section class="chapter-block" id="ch13"><h2 class="chapter-title">الخجول SCP-096</h2><div class="chapter-content">
- قريباً..
-</div></section>
-
-    
+    <p>سلسلة رعب عربية خيالية</p>
 </div>
-<script>
-const menu = document.getElementById("chaptersMenu");
-const popup = document.getElementById("popup");
-const socialPopup = document.getElementById("socialPopup");
 
-// فتح وإغلاق القوائم
-function toggleMenu(){ menu.style.display = menu.style.display === "block" ? "none" : "block"; }
-function openPopup(){ popup.style.display="flex"; }
-function closePopup(){ popup.style.display="none"; }
-function openSocialPopup(){ socialPopup.style.display="flex"; }
-function closeSocialPopup(){ socialPopup.style.display="none"; }
+<!-- ===== chapters ===== -->
+<div class="chapter" id="c1">
+    <h2>القرين</h2>
+    <p>قريباً...</p>
+</div>
+
+<div class="chapter" id="c2">
+    <h2>النداهة</h2>
+    <p>قريباً...</p>
+</div>
+
+<div class="chapter" id="c3">
+    <h2>عيشة قنديشة</h2>
+    <p>قريباً...</p>
+</div>
+
+<script>
+const menu = document.getElementById("menu");
+
+function toggleMenu(){
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+
+function showChapter(id){
+    document.querySelectorAll(".chapter").forEach(c => c.style.display = "none");
+    document.getElementById(id).style.display = "block";
+    menu.style.display = "none";
+}
+
+function scrollHome(){
+    document.getElementById("home").scrollIntoView({behavior:"smooth"});
+}
 
 window.addEventListener("click", function(e){
-    if(!e.target.closest(".navbar") && !e.target.closest(".chapters-menu")) menu.style.display="none";
-    if(e.target === popup) popup.style.display="none";
-    if(e.target === socialPopup) socialPopup.style.display="none";
-});
-
-// العودة للرئيسية بدون إخفاء الفصول
-function scrollToHome(){
-    document.getElementById("homeSection").scrollIntoView({behavior:"smooth", block:"start"});
-}
-
-// عرض فصل معين والتمرير إليه
-function showChapter(id){
-    document.querySelectorAll(".chapter-block").forEach(ch=> ch.style.display="none");
-    const chapter = document.getElementById(id);
-    chapter.style.display="block";
-    setTimeout(()=>{ chapter.scrollIntoView({behavior:"smooth", block:"start"}); }, 10);
-}
-
-// إغلاق القائمة عند اختيار فصل
-document.querySelectorAll("#chaptersMenu a").forEach(link=>{
-    link.addEventListener("click", ()=> menu.style.display="none");
+    if(!e.target.closest(".navbar") && !e.target.closest(".menu")){
+        menu.style.display = "none";
+    }
 });
 </script>
-<!-- ===== كلمات مفتاحية مخفية لتحسين SEO ===== -->
-<div style="display:none;">
-    Feroonthy X, رواية خيال عربية, رواية فانتازيا مصرية, عصر الفوضى, صراع الأعراق, مغامرات ملحمية, أحداث ملحمية, شخصيات رئيسية, قصص خيالية, فوضى عالمية, انهيار الأركان, نجاة الأجناس, قوى خارقة, مملكة فانتازية, عالم بديل, مغامرات وشخصيات, رواية عربية حديثة, بداية عصر جديد, ابدأ رحلة ملحمية مع Weson X, اقرأ أحدث فصول الرواية الآن, تجربة فانتازيا عربية لا مثيل لها, تتابع أحداث عصر الفوضى مع كل فصل, تعرف على الشخصيات الرئيسية ومغامراتهم
-</div>
 
 </body>
-</html><!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pen</title>
-  </head>
-  <body>
-
-    <script src="./script.js"></script>
-<script>
-  const lazyImages = document.querySelectorAll('img.lazy');
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.classList.add('show'); // تفعيل Fade
-        observer.unobserve(img);   // وقف المراقبة بعد الظهور
-      }
-    });
-  });
-
-  lazyImages.forEach(img => observer.observe(img));
-</script>
-      
-  </body>
 </html>
