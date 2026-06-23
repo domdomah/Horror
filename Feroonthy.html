@@ -28,7 +28,7 @@ html, body {
     border-bottom: 1px solid #111;
 
     display: flex;
-    justify-content: center;   /* 🔥 هذا يجعل العناصر في النص */
+    justify-content: center;
     align-items: center;
     gap: 25px;
 
@@ -78,16 +78,27 @@ html, body {
     font-size: 50px;
 }
 
+.summary {
+    margin-top: 10px;
+    color: #bbb;
+}
+
 /* ===== chapters ===== */
-.chapter {
+.chapter-block {
     display: none;
     padding: 40px;
     max-width: 800px;
     margin: auto;
 }
 
-.chapter h2 {
+.chapter-title {
     color: #b8860b;
+    margin-bottom: 15px;
+}
+
+.chapter-content {
+    line-height: 2;
+    color: #ccc;
 }
 </style>
 </head>
@@ -102,59 +113,123 @@ html, body {
 
 <!-- ===== menu ===== -->
 <div class="menu" id="menu">
-    <a onclick="showChapter('c1')">القرين</a>
-    <a onclick="showChapter('c2')">النداهة</a>
-    <a onclick="showChapter('c3')">عيشة قنديشة</a>
+    <a onclick="showChapter('ch1')">القرين</a>
+    <a onclick="showChapter('ch2')">النداهة</a>
+    <a onclick="showChapter('ch3')">عيشة قنديشة</a>
+    <a onclick="showChapter('ch4')">أم الدويس</a>
+    <a onclick="showChapter('ch5')">الغول</a>
+    <a onclick="showChapter('ch6')">السعلاة</a>
+    <a onclick="showChapter('ch7')">السلعوة</a>
+    <a onclick="showChapter('ch8')">الطنطل</a>
+    <a onclick="showChapter('ch9')">الفرعون</a>
+    <a onclick="showChapter('ch10')">النسناس</a>
+    <a onclick="showChapter('ch11')">سايرن هيد</a>
+    <a onclick="showChapter('ch12')">الخجول SCP-096</a>
+    <a onclick="showChapter('ch13')">كوتشيساكي أونّا</a>
 </div>
 
 <!-- ===== hero ===== -->
 <div class="hero" id="home">
     <h1>رعب الدمادم</h1>
-<img src="file_000000009350720aa4c1db8e94ea60d5.png" 
-     alt="القمر الدموي، رعب الدمادم" 
-     width="200" 
-     loading="lazy">
 
-<div class="summary">
-    رعب الدمادم: سلسلة رعب خيالي ذات طابع مصري وعربي.
-</div>
-  
-    <p>سلسلة رعب عربية خيالية</p>
-</div>
+    <img src="file_000000009350720aa4c1db8e94ea60d5.png"
+         alt="القمر الدموي"
+         width="200"
+         loading="lazy">
 
-<!-- ===== chapters ===== -->
-<div class="chapter" id="c1">
-    <h2>القرين</h2>
-    <p>قريباً...</p>
+    <div class="summary">
+        سلسلة رعب خيالية ذات طابع عربي
+    </div>
 </div>
 
-<div class="chapter" id="c2">
-    <h2>النداهة</h2>
-    <p>قريباً...</p>
-</div>
+<!-- ===== chapters (نظامك 2) ===== -->
 
-<div class="chapter" id="c3">
-    <h2>عيشة قنديشة</h2>
-    <p>قريباً...</p>
-</div>
+<section class="chapter-block" id="ch1">
+<h2 class="chapter-title">القرين</h2>
+<div class="chapter-content">قريباً..</div>
+</section>
+
+<section class="chapter-block" id="ch2">
+<h2 class="chapter-title">النداهة</h2>
+<div class="chapter-content">قريباً..</div>
+</section>
+
+<section class="chapter-block" id="ch3">
+<h2 class="chapter-title">عيشة قنديشة</h2>
+<div class="chapter-content">قريباً..</div>
+</section>
+
+<section class="chapter-block" id="ch4">
+<h2 class="chapter-title">أم الدويس</h2>
+<div class="chapter-content">قريباً..</div>
+</section>
+
+<section class="chapter-block" id="ch5">
+<h2 class="chapter-title">الغول</h2>
+<div class="chapter-content">قريباً..</div>
+</section>
+
+<section class="chapter-block" id="ch6">
+<h2 class="chapter-title">السعلاة</h2>
+<div class="chapter-content">قريباً..</div>
+</section>
+
+<section class="chapter-block" id="ch7">
+<h2 class="chapter-title">السلعوة</h2>
+<div class="chapter-content">قريباً..</div>
+</section>
+
+<section class="chapter-block" id="ch8">
+<h2 class="chapter-title">الطنطل</h2>
+<div class="chapter-content">قريباً..</div>
+</section>
+
+<section class="chapter-block" id="ch9">
+<h2 class="chapter-title">الفرعون</h2>
+<div class="chapter-content">قريباً..</div>
+</section>
+
+<section class="chapter-block" id="ch10">
+<h2 class="chapter-title">النسناس</h2>
+<div class="chapter-content">قريباً..</div>
+</section>
+
+<section class="chapter-block" id="ch11">
+<h2 class="chapter-title">سايرن هيد</h2>
+<div class="chapter-content">قريباً..</div>
+</section>
+
+<section class="chapter-block" id="ch12">
+<h2 class="chapter-title">الخجول SCP-096</h2>
+<div class="chapter-content">قريباً..</div>
+</section>
+
+<section class="chapter-block" id="ch13">
+<h2 class="chapter-title">كوتشيساكي أونّا</h2>
+<div class="chapter-content">قريباً..</div>
+</section>
 
 <script>
 const menu = document.getElementById("menu");
 
+// فتح/إغلاق القائمة
 function toggleMenu(){
     menu.style.display = (menu.style.display === "block") ? "none" : "block";
 }
 
+// عرض فصل
 function showChapter(id){
-    document.querySelectorAll(".chapter").forEach(c => c.style.display = "none");
+    document.querySelectorAll(".chapter-block").forEach(c => c.style.display = "none");
     document.getElementById(id).style.display = "block";
     menu.style.display = "none";
 }
 
+// العودة للرئيسية
 function scrollHome(){
     document.getElementById("home").scrollIntoView({behavior:"smooth"});
 }
 
+// إغلاق القائمة عند الضغط خارجها
 window.addEventListener("click", function(e){
     if(!e.target.closest(".navbar") && !e.target.closest(".menu")){
         menu.style.display = "none";
