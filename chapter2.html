@@ -64,9 +64,24 @@ h1{
 
 /* موبايل */
 @media (max-width:768px){
-    body{padding:20px}
-    .btn{width:100%;text-align:center}
-    .chapter-nav{flex-direction:column}
+
+    body{
+        padding:20px;
+    }
+
+    .chapter-nav{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        width:100%;
+    }
+
+    .btn{
+        width:90%;
+        max-width:300px;
+        text-align:center;
+        box-sizing:border-box;
+    }
 }
 
 </style>
@@ -81,13 +96,13 @@ h1{
 </div>
 
 <div class="chapter-nav">
-    <a id="prev" class="btn">← السابق</a>
+    <a id="prev" class="btn">السابق</a>
     <a href="Dumdum.html" class="btn home">الرئيسية</a>
-    <a id="next" class="btn">التالي →</a>
+    <a id="next" class="btn">التالي</a>
 </div>
 
 <script>
-const totalChapters = 10; // غيّرها لو عندك 13 مثلاً
+const totalChapters = 13; // غيّرها لو عندك 13 مثلاً
 
 const file = location.pathname.split("/").pop();
 const num = parseInt(file.replace("chapter","").replace(".html",""));
