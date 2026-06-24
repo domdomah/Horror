@@ -81,85 +81,34 @@ h1{
 </div>
 
 <div class="chapter-nav">
-    <a id="prev" class="btn">← السابق</a>
+    <a id="prev" class="btn">السابق</a>
     <a href="Dumdum.html" class="btn home">الرئيسية</a>
-    <a id="next" class="btn">التالي →</a>
+    <a id="next" class="btn">التالي</a>
 </div>
 
 <script>
-const pages = [
-"chapter1.html","chapter2.html","chapter3.html","chapter4.html","chapter5.html",
-"chapter6.html","chapter7.html","chapter8.html","chapter9.html","chapter10.html",
-"chapter11.html","chapter12.html","chapter13.html"
-];
+const totalChapters = 10; // غيّرها لو عندك 13 مثلاً
 
-const current = window.location.pathname.split("/").pop();
-const index = pages.indexOf(current);
-
-const prevBtn = document.getElementById("prev");
-const nextBtn = document.getElementById("next");
-
-if(index > 0){
-    prevBtn.href = pages[index - 1];
-} else {
-    prevBtn.style.display = "none";
-}
-
-if(index < pages.length - 1){
-    nextBtn.href = pages[index + 1];
-} else {
-    nextBtn.style.display = "none";
-}
-</script>
-
-</body>
-</html></style>
-</head>
-
-<body>
-<h1>القرين</h1>
-<p>قريباً...</p>
-<div class="chapter-nav">
-    <a id="prev" class="btn">← السابق</a>
-    <a href="Dumdum.html" class="btn home">الرئيسية</a>
-    <a id="next" class="btn">التالي →</a>
-</div>
-  <script>
-const pages = [
-"chapter1.html",
-"chapter2.html",
-"chapter3.html",
-"chapter4.html",
-"chapter5.html",
-"chapter6.html",
-"chapter7.html",
-"chapter8.html",
-"chapter9.html",
-"chapter10.html",
-"chapter11.html",
-"chapter12.html",
-"chapter13.html"
-];
-
-const current = window.location.pathname.split("/").pop();
-const index = pages.indexOf(current);
+const file = location.pathname.split("/").pop();
+const num = parseInt(file.replace("chapter","").replace(".html",""));
 
 const prevBtn = document.getElementById("prev");
 const nextBtn = document.getElementById("next");
 
 // السابق
-if(index > 0){
-    prevBtn.href = pages[index - 1];
+if(num > 1){
+    prevBtn.href = `chapter${num - 1}.html`;
 } else {
     prevBtn.style.display = "none";
 }
 
 // التالي
-if(index < pages.length - 1){
-    nextBtn.href = pages[index + 1];
+if(num < totalChapters){
+    nextBtn.href = `chapter${num + 1}.html`;
 } else {
     nextBtn.style.display = "none";
 }
-  </script>
+</script>
+
 </body>
 </html>
