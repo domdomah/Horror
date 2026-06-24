@@ -103,8 +103,7 @@ html, body {
 
 <!-- ===== navbar ===== -->
 <div class="navbar">
-    <a onclick="scrollHome()">الرئيسية</a>
-    <a onclick="toggleMenu()">الفصول</a>
+    <a onclick="toggleMenu()">الأجزاء</a>
 </div>
 
 <!-- ===== menu ===== -->
@@ -221,10 +220,6 @@ function showChapter(id){
     menu.style.display = "none";
 }
 
-// العودة للرئيسية
-function scrollHome(){
-    document.getElementById("home").scrollIntoView({behavior:"smooth"});
-}
 
 // إغلاق القائمة عند الضغط خارجها
 window.addEventListener("click", function(e){
