@@ -2,29 +2,128 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>أم الدويس</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
 
 <style>
+
 body{
     background:#000;
     color:#ccc;
-    font-family:'Alice', serif;
+    font-family:'Alice',serif;
     padding:40px;
+    text-align:center;
 }
-h1{ color:#A11212; }
-a{ color:#A11212; text-decoration:none; }
+
+h1{
+    color:#A11212;
+    margin-bottom:20px;
+}
+
+.chapter-content{
+    line-height:2.4;
+    font-size:18px;
+    max-width:700px;
+    margin:auto;
+}
+
+.chapter-nav{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:40px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:10px 15px;
+    border:1px solid #A11212;
+    color:#A11212;
+    text-decoration:none;
+    border-radius:6px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#A11212;
+    color:#000;
+}
+
+.home{
+    border:1px solid #A11212;
+    color:#A11212;
+}
+
+.home:hover{
+    background:#A11212;
+    color:#000;
+}
+
+/* موبايل */
+@media (max-width:768px){
+
+    body{
+        padding:20px;
+    }
+
+    .chapter-nav{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        width:100%;
+    }
+
+    .btn{
+        width:90%;
+        max-width:300px;
+        text-align:center;
+        box-sizing:border-box;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
 <h1>أم الدويس</h1>
-<p>قريباً...</p>
 
-<br>
-<a href="Dumdum.html">← الرجوع للرئيسية</a>
+<div class="chapter-content">
+    قريباً...
+</div>
+
+<div class="chapter-nav">
+    <a id="prev" class="btn">السابق</a>
+    <a href="Dumdum.html" class="btn home">الرئيسية</a>
+    <a id="next" class="btn">التالي</a>
+</div>
+
+<script>
+const totalChapters = 13; // غيّرها لو عندك 13 مثلاً
+
+const file = location.pathname.split("/").pop();
+const num = parseInt(file.replace("chapter","").replace(".html",""));
+
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
+
+// السابق
+if(num > 1){
+    prevBtn.href = `chapter${num - 1}.html`;
+} else {
+    prevBtn.style.display = "none";
+}
+
+// التالي
+if(num < totalChapters){
+    nextBtn.href = `chapter${num + 1}.html`;
+} else {
+    nextBtn.style.display = "none";
+}
+</script>
 
 </body>
 </html>
