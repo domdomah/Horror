@@ -87,40 +87,27 @@ h1{
 </div>
 
 <script>
-const pages = [
-"chapter1.html","chapter2.html","chapter3.html","chapter4.html","chapter5.html",
-"chapter6.html","chapter7.html","chapter8.html","chapter9.html","chapter10.html",
-"chapter11.html","chapter12.html","chapter13.html"
-];
+const totalChapters = 10; // غيّرها لو عندك 13 مثلاً
 
-const current = window.location.pathname.split("/").pop();
-const index = pages.indexOf(current);
+const file = location.pathname.split("/").pop();
+const num = parseInt(file.replace("chapter","").replace(".html",""));
 
 const prevBtn = document.getElementById("prev");
 const nextBtn = document.getElementById("next");
 
-if(index > 0){
-    prevBtn.href = pages[index - 1];
+// السابق
+if(num > 1){
+    prevBtn.href = `chapter${num - 1}.html`;
 } else {
     prevBtn.style.display = "none";
 }
 
-if(index < pages.length - 1){
-    nextBtn.href = pages[index + 1];
+// التالي
+if(num < totalChapters){
+    nextBtn.href = `chapter${num + 1}.html`;
 } else {
     nextBtn.style.display = "none";
 }
-</script>
-
-</body>
-</html>"chapter11.html","chapter12.html","chapter13.html"
-];
-const current=location.pathname.split("/").pop();
-const i=pages.indexOf(current);
-prev=document.getElementById("prev");
-next=document.getElementById("next");
-if(i>0) prev.href=pages[i-1]; else prev.style.display="none";
-if(i<pages.length-1) next.href=pages[i+1]; else next.style.display="none";
 </script>
 
 </body>
