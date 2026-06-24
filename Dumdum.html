@@ -80,23 +80,6 @@ html, body {
     color: #C8C8C8;
 }
 
-/* ===== chapters ===== */
-.chapter-block {
-    display: none;
-    padding: 40px;
-    max-width: 800px;
-    margin: auto;
-}
-
-.chapter-title {
-    color: #A11212;
-    margin-bottom: 15px;
-}
-
-.chapter-content {
-    line-height: 2;
-    color: #ccc;
-}
 </style>
 </head>
 
@@ -109,19 +92,19 @@ html, body {
 
 <!-- ===== menu ===== -->
 <div class="menu" id="menu">
-    <a onclick="showChapter('ch1')">القرين</a>
-    <a onclick="showChapter('ch2')">النداهة</a>
-    <a onclick="showChapter('ch3')">عيشة قنديشة</a>
-    <a onclick="showChapter('ch4')">أم الدويس</a>
-    <a onclick="showChapter('ch5')">الغول</a>
-    <a onclick="showChapter('ch6')">السعلاة</a>
-    <a onclick="showChapter('ch7')">السلعوة</a>
-    <a onclick="showChapter('ch8')">الطنطل</a>
-    <a onclick="showChapter('ch9')">الفرعون</a>
-    <a onclick="showChapter('ch10')">النسناس</a>
-    <a onclick="showChapter('ch11')">سايرن هيد</a>
-    <a onclick="showChapter('ch12')">الخجول SCP-096</a>
-    <a onclick="showChapter('ch13')">كوتشيساكي أونّا</a>
+    <a href="chapter1.html">القرين</a>
+    <a href="chapter2.html">النداهة</a>
+    <a href="chapter3.html">عيشة قنديشة</a>
+    <a href="chapter4.html">أم الدويس</a>
+    <a href="chapter5.html">الغول</a>
+    <a href="chapter6.html">السعلاة</a>
+    <a href="chapter7.html">السلعوة</a>
+    <a href="chapter8.html">الطنطل</a>
+    <a href="chapter9.html">الفرعون</a>
+    <a href="chapter10.html">النسناس</a>
+    <a href="chapter11.html">سايرن هيد</a>
+    <a href="chapter12.html">الخجول SCP-096</a>
+    <a href="chapter13.html">كوتشيساكي أونّا</a>
 </div>
 
 <!-- ===== hero ===== -->
@@ -139,72 +122,6 @@ html, body {
 </div>
 </div>
 
-<!-- ===== chapters (نظامك 2) ===== -->
-
-<section class="chapter-block" id="ch1">
-<h2 class="chapter-title">القرين</h2>
-<div class="chapter-content">قريباً..</div>
-</section>
-
-<section class="chapter-block" id="ch2">
-<h2 class="chapter-title">النداهة</h2>
-<div class="chapter-content">قريباً..</div>
-</section>
-
-<section class="chapter-block" id="ch3">
-<h2 class="chapter-title">عيشة قنديشة</h2>
-<div class="chapter-content">قريباً..</div>
-</section>
-
-<section class="chapter-block" id="ch4">
-<h2 class="chapter-title">أم الدويس</h2>
-<div class="chapter-content">قريباً..</div>
-</section>
-
-<section class="chapter-block" id="ch5">
-<h2 class="chapter-title">الغول</h2>
-<div class="chapter-content">قريباً..</div>
-</section>
-
-<section class="chapter-block" id="ch6">
-<h2 class="chapter-title">السعلاة</h2>
-<div class="chapter-content">قريباً..</div>
-</section>
-
-<section class="chapter-block" id="ch7">
-<h2 class="chapter-title">السلعوة</h2>
-<div class="chapter-content">قريباً..</div>
-</section>
-
-<section class="chapter-block" id="ch8">
-<h2 class="chapter-title">الطنطل</h2>
-<div class="chapter-content">قريباً..</div>
-</section>
-
-<section class="chapter-block" id="ch9">
-<h2 class="chapter-title">الفرعون</h2>
-<div class="chapter-content">قريباً..</div>
-</section>
-
-<section class="chapter-block" id="ch10">
-<h2 class="chapter-title">النسناس</h2>
-<div class="chapter-content">قريباً..</div>
-</section>
-
-<section class="chapter-block" id="ch11">
-<h2 class="chapter-title">سايرن هيد</h2>
-<div class="chapter-content">قريباً..</div>
-</section>
-
-<section class="chapter-block" id="ch12">
-<h2 class="chapter-title">الخجول SCP-096</h2>
-<div class="chapter-content">قريباً..</div>
-</section>
-
-<section class="chapter-block" id="ch13">
-<h2 class="chapter-title">كوتشيساكي أونّا</h2>
-<div class="chapter-content">قريباً..</div>
-</section>
 
 <script>
 const menu = document.getElementById("menu");
@@ -213,14 +130,6 @@ const menu = document.getElementById("menu");
 function toggleMenu(){
     menu.style.display = (menu.style.display === "block") ? "none" : "block";
 }
-
-// عرض فصل
-function showChapter(id){
-    document.querySelectorAll(".chapter-block").forEach(c => c.style.display = "none");
-    document.getElementById(id).style.display = "block";
-    menu.style.display = "none";
-}
-
 
 // إغلاق القائمة عند الضغط خارجها
 window.addEventListener("click", function(e){
